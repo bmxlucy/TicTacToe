@@ -15,8 +15,10 @@ let options = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
 let running = false;
 
+initializeGame();
+
 function initializeGame() {
-    cells.forEach(cell => cell.addEventListener('click',));
+    cells.forEach(cell => cell.addEventListener('click', cellClicked));
     restartBtn.addEventListener('click', restartGame);
     statusText.textContent = `${currentPlayer}'s turn`;
     running = true;
@@ -49,7 +51,7 @@ function checkWinner() {
         }
         if(cellA === cellB && cellB === cellC) {
             roundWon = true;
-            break
+            break;
         }
     }
 
@@ -73,3 +75,4 @@ function restartGame() {
     cells.forEach(cell => cell.textContent = "");
     running = true;
 }
+
